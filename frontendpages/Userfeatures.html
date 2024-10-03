@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Workshop Features</title>
+    <link rel="stylesheet" href="interactive.css">
+    <style>
+        /* interactive.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    padding: 20px;
+    color: #333;
+    animation: fadeIn 1.5s ease;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.header button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #764ba2;
+}
+
+.live-session,
+.post-training {
+    margin-bottom: 20px;
+    animation: slideIn 0.5s ease;
+}
+
+.live-session h2,
+.post-training h2 {
+    font-size: 1.4em;
+    color: #333;
+}
+
+.video-embed {
+    margin: 20px 0;
+}
+
+.video-embed iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    border: none;
+}
+
+.polls {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.polls:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.polls h3 {
+    color: #333;
+}
+
+.polls form {
+    margin-top: 10px;
+}
+
+.polls button {
+    margin-top: 10px;
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.polls button:hover {
+    background-color: #764ba2;
+    transform: translateY(-3px);
+}
+
+.notes {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notes h3 {
+    color: #333;
+}
+
+.notes textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+.notes textarea:focus {
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.post-training .resources {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.resource-card {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.resource-card h4 {
+    color: #333;
+}
+
+.resource-card form,
+.resource-card a,
+.resource-card button {
+    display: block;
+    margin-top: 10px;
+}
+
+.resource-card button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.resource-card button:hover {
+    background-color: #764ba2;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Workshop Session</h1>
+            <button onclick="signOut()">Sign Out</button>
+        </header>
+
+        <div class="live-session">
+            <h2>Join Live Workshop</h2>
+            <div class="video-embed">
+                <iframe src="https://www.youtube.com" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="polls">
+                <h3>Live Poll</h3>
+                <p>How would you rate your current knowledge of AI?</p>
+                <form>
+                    <label><input type="radio" name="poll" value="beginner"> Beginner</label><br>
+                    <label><input type="radio" name="poll" value="intermediate"> Intermediate</label><br>
+                    <label><input type="radio" name="poll" value="advanced"> Advanced</label><br>
+                    <button type="submit">Submit Poll</button>
+                </form>
+            </div>
+            <div class="notes">
+                <h3>Take Notes</h3>
+                <textarea placeholder="Write your notes here..."></textarea>
+            </div>
+        </div>
+
+        <div class="post-training">
+            <h2>Post-Training Resources</h2>
+            <div class="resources">
+                <div class="resource-card">
+                    <h4>Training Materials</h4>
+                    <a href="#">Download PDF</a><br>
+                    <a href="#">Watch Video Recording</a>
+                </div>
+                <div class="resource-card">
+                    <h4>Feedback</h4>
+                    <form onsubmit="handleFeedback(event)">
+                        <textarea placeholder="Provide your feedback..."></textarea><br>
+                        <label>Rate the Workshop:</label>
+                        <select required>
+                            <option value="" disabled selected>Select Rating</option>
+                            <option value="1">1 - Poor</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="3">3 - Good</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="5">5 - Excellent</option>
+                        </select>
+                        <button type="submit">Submit Feedback</button>
+                    </form>
+                </div>
+                <div class="resource-card">
+                    <h4>Certificate</h4>
+                    <button onclick="downloadCertificate()">Download Certificate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function signOut() {
+            alert('Redirecting to Sign Out page...');
+        }
+
+        function handleFeedback(event) {
+            event.preventDefault();
+            alert('Thank you for your feedback!');
+        }
+
+        function downloadCertificate() {
+            alert('Downloading your certificate...');
+        }
+    </script>
+</body>
+
+</html>

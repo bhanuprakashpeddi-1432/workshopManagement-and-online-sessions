@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Dashboard Overview</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        /* dashboard.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.dashboard-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    padding: 20px;
+    color: #333;
+    animation: fadeIn 1.5s ease;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.header button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #764ba2;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #667eea;
+    padding: 10px;
+    border-radius: 50px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #764ba2;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    color: #fff;
+}
+
+.notifications, .quick-links {
+    margin-bottom: 20px;
+}
+
+.notifications h2, .quick-links h2 {
+    font-size: 1.4em;
+    color: #333;
+}
+
+.notifications ul {
+    list-style-type: none;
+    padding-left: 0;
+    color: #555;
+}
+
+.notifications li {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease;
+}
+
+.quick-links button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.quick-links button:hover {
+    background-color: #764ba2;
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>Workshop Dashboard</h1>
+            <button onclick="signOut()">Sign Out</button>
+        </header>
+
+        <div class="cards-container">
+            <div class="card" id="workshops">
+                <h3>Workshops</h3>
+                <p>Total Workshops: 12</p>
+                <p>Upcoming: 5</p>
+            </div>
+            <div class="card" id="registrations">
+                <h3>Registrations</h3>
+                <p>Total Registrations: 300</p>
+                <p>New This Week: 45</p>
+            </div>
+            <div class="card" id="participants">
+                <h3>Participants</h3>
+                <p>Active: 240</p>
+                <p>Feedback Collected: 180</p>
+            </div>
+        </div>
+
+        <div class="notifications">
+            <h2>Upcoming Sessions & Tasks</h2>
+            <ul>
+                <li>Workshop A - Oct 10th, 3 PM</li>
+                <li>Send feedback survey - Oct 11th</li>
+                <li>Prepare materials for Workshop B - Oct 15th</li>
+            </ul>
+        </div>
+
+        <div class="quick-links">
+            <h2>Quick Links</h2>
+            <button onclick="manageWorkshops()">Workshops</button>
+            <button onclick="manageParticipants()">Manage Participants</button>
+            <button onclick="viewReports()">View Reports</button>
+        </div>
+    </div>
+
+    <script>
+        function signOut() {
+            alert('Redirecting to Sign Out page...');
+            // Redirect logic here
+        }
+
+        function manageWorkshops() {
+            alert('Navigating to Organize Workshops...');
+            window.location.href = "Userfeatures.html";
+
+            // Redirect to organize workshops page
+        }
+
+        function manageParticipants() {
+            alert('Navigating to Manage Participants...');
+            // Redirect to manage participants page
+        }
+
+        function viewReports() {
+            alert('Navigating to Reports...');
+            // Redirect to view reports
+        }
+    </script>
+</body>

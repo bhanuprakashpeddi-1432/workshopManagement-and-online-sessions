@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Workshop Overview</title>
+    <style>
+        /* home.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    padding: 20px;
+    color: #333;
+    animation: fadeIn 1.5s ease;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.header button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header button:hover {
+    background-color: #764ba2;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h2 {
+    font-size: 1.4em;
+    color: #333;
+}
+
+#filterForm {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#filterForm select,
+#filterForm button {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#filterForm select:focus {
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+#filterForm button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#filterForm button:hover {
+    background-color: #764ba2;
+    transform: translateY(-3px);
+}
+
+.workshop-list {
+    margin-top: 20px;
+}
+
+.workshop-list h2 {
+    font-size: 1.4em;
+    color: #333;
+}
+
+.workshop-card {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 0.5s ease;
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.workshop-card h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.workshop-card p {
+    color: #555;
+}
+
+.workshop-card button {
+    background-color: #667eea;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+}
+
+.workshop-card button:hover {
+    background-color: #764ba2;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Available Workshops</h1>
+            <button onclick="signOut()">Sign Out</button>
+        </header>
+
+        <div class="filter-section">
+            <h2>Filter Workshops</h2>
+            <form id="filterForm">
+                <select>
+                    <option value="" disabled selected>Filter by Category</option>
+                    <option value="technology">Technology</option>
+                    <option value="business">Business</option>
+                    <option value="art">Art</option>
+                    <!-- Add more categories -->
+                </select>
+                <select>
+                    <option value="" disabled selected>Filter by Date</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="past">Past</option>
+                </select>
+                <select>
+                    <option value="" disabled selected>Filter by Popularity</option>
+                    <option value="most_popular">Most Popular</option>
+                    <option value="least_popular">Least Popular</option>
+                </select>
+                <button type="submit">Apply Filters</button>
+            </form>
+        </div>
+
+        <div class="workshop-list">
+            <h2>Workshops</h2>
+            <div class="workshop-card" id="workshop1">
+                <h3>AI in Business</h3>
+                <p><strong>Date:</strong> Oct 20th, 2024</p>
+                <p><strong>Category:</strong> Technology</p>
+                <p><strong>Popularity:</strong> 150 Participants</p>
+                <button onclick="viewDetails('workshop1')">View Details</button>
+            </div>
+
+            <div class="workshop-card" id="workshop2">
+                <h3>Advanced JavaScript</h3>
+                <p><strong>Date:</strong> Oct 25th, 2024</p>
+                <p><strong>Category:</strong> Technology</p>
+                <p><strong>Popularity:</strong> 200 Participants</p>
+                <button onclick="viewDetails('workshop2')">View Details</button>
+            </div>
+            <!-- More workshop cards can be added here -->
+        </div>
+    </div>
+
+    <script>
+        function signOut() {
+            alert('Redirecting to Sign Out page...');
+        }
+
+        function viewDetails(workshopId) {
+            alert('Viewing details for: ' + workshopId);
+            // You can add the logic for viewing detailed info about the workshop here
+        }
+    </script>
+</body>
+
+</html>
